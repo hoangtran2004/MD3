@@ -5,4 +5,4 @@ for (const value of arr) {
         max = value;
     }
 }
-console.log(`Max of value is ${max}`);
+console.log(`Max of array is ${max}`);
