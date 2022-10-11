@@ -4,7 +4,7 @@ const fs = require('fs');
 
 http.createServer(function (req, res) {
     if (req.method === 'GET') {
-        fs.readFile('./Calculator/calculator.html', function (err, data) {
+        fs.readFile('calculator.html', function (err, data) {
             res.writeHead(200, {'Content-Type': 'text/html'});
             res.write(data);
             return res.end()
@@ -16,7 +16,7 @@ http.createServer(function (req, res) {
         })
         req.on('end', () => {
             const number = qs.parse(data);
-            fs.readFile('./Calculator/result', 'utf-8', function (err, datahtml) {
+            fs.readFile('result.html', 'utf-8', function (err, datahtml) {
                 if (err) {
                     console.log(err)
                 }
