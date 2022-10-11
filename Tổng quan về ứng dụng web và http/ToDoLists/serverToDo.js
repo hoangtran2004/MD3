@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const qs = require('qs');
 
-const serverListToDo = http.createServer(function (req, res) {
+const serverToDo = http.createServer(function (req, res) {
     if (req.method === 'GET') {
         fs.readFile('todo.html', function (err, data) {
             res.writeHead(200, {'Content-Type': 'text/html'});
@@ -16,7 +16,7 @@ const serverListToDo = http.createServer(function (req, res) {
         })
         req.on('end', () => {
             const work = qs.parse(data);
-            fs.readFile('display.html', 'utf-8', function (err, datahtml) {
+            fs.readFile('displays.html', 'utf-8', function (err, datahtml) {
                 if (err) {
                     console.log(err)
                 }
@@ -34,7 +34,7 @@ const serverListToDo = http.createServer(function (req, res) {
         })
     }
 })
-serverListToDo.listen(8080, function () {
+serverToDo.listen(8080, function () {
     console.log('server running at localhost 8080');
 
 });
